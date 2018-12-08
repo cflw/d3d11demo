@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28302.56
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28315.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "空白窗口", "空白窗口\空白窗口.vcxproj", "{B4AA899D-CE47-4F8E-86CE-7CC8ED196292}"
 EndProject
@@ -22,6 +22,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "粒子", "粒子\粒子.vcxproj", "{F371F20F-F91A-4B80-9FA8-7AEBE426EC92}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "深度模板", "深度模板\深度模板.vcxproj", "{69225269-22A1-4DA7-92CD-5BC4C31BBC14}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "曲面细分", "曲面细分\曲面细分.vcxproj", "{1512E1CE-9A5E-4D06-8D82-F828EAB851A6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "曲面细分2", "曲面细分2\曲面细分2.vcxproj", "{6631B19C-521D-49B9-A2C1-B607C374BF4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +115,22 @@ Global
 		{69225269-22A1-4DA7-92CD-5BC4C31BBC14}.Release|x64.Build.0 = Release|x64
 		{69225269-22A1-4DA7-92CD-5BC4C31BBC14}.Release|x86.ActiveCfg = Release|Win32
 		{69225269-22A1-4DA7-92CD-5BC4C31BBC14}.Release|x86.Build.0 = Release|Win32
+		{1512E1CE-9A5E-4D06-8D82-F828EAB851A6}.Debug|x64.ActiveCfg = Debug|x64
+		{1512E1CE-9A5E-4D06-8D82-F828EAB851A6}.Debug|x64.Build.0 = Debug|x64
+		{1512E1CE-9A5E-4D06-8D82-F828EAB851A6}.Debug|x86.ActiveCfg = Debug|Win32
+		{1512E1CE-9A5E-4D06-8D82-F828EAB851A6}.Debug|x86.Build.0 = Debug|Win32
+		{1512E1CE-9A5E-4D06-8D82-F828EAB851A6}.Release|x64.ActiveCfg = Release|x64
+		{1512E1CE-9A5E-4D06-8D82-F828EAB851A6}.Release|x64.Build.0 = Release|x64
+		{1512E1CE-9A5E-4D06-8D82-F828EAB851A6}.Release|x86.ActiveCfg = Release|Win32
+		{1512E1CE-9A5E-4D06-8D82-F828EAB851A6}.Release|x86.Build.0 = Release|Win32
+		{6631B19C-521D-49B9-A2C1-B607C374BF4A}.Debug|x64.ActiveCfg = Debug|x64
+		{6631B19C-521D-49B9-A2C1-B607C374BF4A}.Debug|x64.Build.0 = Debug|x64
+		{6631B19C-521D-49B9-A2C1-B607C374BF4A}.Debug|x86.ActiveCfg = Debug|Win32
+		{6631B19C-521D-49B9-A2C1-B607C374BF4A}.Debug|x86.Build.0 = Debug|Win32
+		{6631B19C-521D-49B9-A2C1-B607C374BF4A}.Release|x64.ActiveCfg = Release|x64
+		{6631B19C-521D-49B9-A2C1-B607C374BF4A}.Release|x64.Build.0 = Release|x64
+		{6631B19C-521D-49B9-A2C1-B607C374BF4A}.Release|x86.ActiveCfg = Release|Win32
+		{6631B19C-521D-49B9-A2C1-B607C374BF4A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
