@@ -73,6 +73,7 @@ void C图形::f初始化(HWND a窗口) {
 void C图形::f销毁() {
 	m着色器v.Reset();
 	m着色器p.Reset();
+	m常量.Reset();
 	m三维.f销毁();
 }
 void C图形::f计算() {
