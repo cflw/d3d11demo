@@ -1,34 +1,34 @@
-#include <time.h>
+ï»¿#include <time.h>
 #include <random>
 #include <mutex>
-#include "Á£×Ó.h"
-std::default_random_engine gËæ»úÊıÒıÇæ((int)time(0));
-std::uniform_real_distribution<float> gËÙ¶È·Ö²¼(1, 100);
-std::uniform_real_distribution<float> g·½Ïò·Ö²¼(0, ÊıÑ§::c¶ş¦Ğ);
-std::uniform_real_distribution<float> gÊÙÃü·Ö²¼(1, 10);
-std::uniform_real_distribution<float> gÑÕÉ«·Ö²¼(0, 7);
-std::uniform_real_distribution<float> gÍ¸Ã÷·Ö²¼(0.1f, 1.f);
-std::mutex gËæ»úÊı»¥³â;
-void CÁ£×Ó::f³õÊ¼»¯() {
-	std::lock_guard<std::mutex> vËø(gËæ»úÊı»¥³â);
-	m×ø±ê = ÊıÑ§::SÏòÁ¿2::cÁã;
-	mËÙ¶È = ÊıÑ§::SÏòÁ¿2::fc·½Ïòr(gËÙ¶È·Ö²¼(gËæ»úÊıÒıÇæ), g·½Ïò·Ö²¼(gËæ»úÊıÒıÇæ));
-	mÑÕÉ« = ÊıÑ§::SÑÕÉ«::fc²Êºç(gÑÕÉ«·Ö²¼(gËæ»úÊıÒıÇæ), gÍ¸Ã÷·Ö²¼(gËæ»úÊıÒıÇæ));
-	mÊÙÃü = gÊÙÃü·Ö²¼(gËæ»úÊıÒıÇæ);
-	mÊ±¼ä = 0;
+#include "ç²’å­.h"
+std::default_random_engine géšæœºæ•°å¼•æ“((int)time(0));
+std::uniform_real_distribution<float> gé€Ÿåº¦åˆ†å¸ƒ(1, 100);
+std::uniform_real_distribution<float> gæ–¹å‘åˆ†å¸ƒ(0, æ•°å­¦::cäºŒÏ€<float>);
+std::uniform_real_distribution<float> gå¯¿å‘½åˆ†å¸ƒ(1, 10);
+std::uniform_real_distribution<float> gé¢œè‰²åˆ†å¸ƒ(0, 7);
+std::uniform_real_distribution<float> gé€æ˜åˆ†å¸ƒ(0.1f, 1.f);
+std::mutex géšæœºæ•°äº’æ–¥;
+void Cç²’å­::fåˆå§‹åŒ–() {
+	std::lock_guard<std::mutex> vé”(géšæœºæ•°äº’æ–¥);
+	måæ ‡ = æ•°å­¦::Så‘é‡2::cé›¶;
+	mé€Ÿåº¦ = æ•°å­¦::Så‘é‡2::fcæ–¹å‘r(gé€Ÿåº¦åˆ†å¸ƒ(géšæœºæ•°å¼•æ“), gæ–¹å‘åˆ†å¸ƒ(géšæœºæ•°å¼•æ“));
+	mé¢œè‰² = æ•°å­¦::Sé¢œè‰²::fcå½©è™¹(gé¢œè‰²åˆ†å¸ƒ(géšæœºæ•°å¼•æ“), gé€æ˜åˆ†å¸ƒ(géšæœºæ•°å¼•æ“));
+	må¯¿å‘½ = gå¯¿å‘½åˆ†å¸ƒ(géšæœºæ•°å¼•æ“);
+	mæ—¶é—´ = 0;
 }
-void CÁ£×Ó::f¼ÆËã() {
-	if (mÊ±¼ä >= mÊÙÃü) {
-		f³õÊ¼»¯();
+void Cç²’å­::fè®¡ç®—() {
+	if (mæ—¶é—´ >= må¯¿å‘½) {
+		fåˆå§‹åŒ–();
 	}
-	if (m×ø±ê.y > c»ù´¡¸ß¶È + 10) {
-		f³õÊ¼»¯();
+	if (måæ ‡.y > cåŸºç¡€é«˜åº¦ + 10) {
+		fåˆå§‹åŒ–();
 	}
-	m×ø±ê += mËÙ¶È * cÖ¡Ãë;
-	mÊ±¼ä += cÖ¡Ãë;
+	måæ ‡ += mé€Ÿåº¦ * cå¸§ç§’;
+	mæ—¶é—´ += cå¸§ç§’;
 }
-void CÁ£×Ó::f¸´ÖÆ() {
-	mÄ¿±ê->m×ø±ê = m×ø±ê;
-	mÄ¿±ê->mÑÕÉ« = mÑÕÉ«;
-	mÄ¿±ê->mÑÕÉ«.a = mÑÕÉ«.a * (mÊÙÃü - mÊ±¼ä) / mÊÙÃü;
+void Cç²’å­::få¤åˆ¶() {
+	mç›®æ ‡->måæ ‡ = måæ ‡;
+	mç›®æ ‡->mé¢œè‰² = mé¢œè‰²;
+	mç›®æ ‡->mé¢œè‰².a = mé¢œè‰².a * (må¯¿å‘½ - mæ—¶é—´) / må¯¿å‘½;
 }

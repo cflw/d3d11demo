@@ -1,62 +1,70 @@
-#include <execution>
+ï»¿#include <execution>
 #include <functional>
-#include "Í¼ÐÎ.h"
-void CÍ¼ÐÎ::f³õÊ¼»¯(HWND a´°¿Ú) {
-	mÈýÎ¬.f³õÊ¼»¯(a´°¿Ú);
-	auto &väÖÈ¾¿ØÖÆ = mÈýÎ¬.fgäÖÈ¾¿ØÖÆ();
-	auto &väÖÈ¾×´Ì¬ = mÈýÎ¬.fgäÖÈ¾×´Ì¬();
-	auto &v×ÅÉ«Æ÷¹¤³§ = mÈýÎ¬.fg×ÅÉ«Æ÷¹¤³§();
-	auto &v»º³å¹¤³§ = mÈýÎ¬.fg»º³å¹¤³§();
-	//×ÅÉ«Æ÷
-	ÈýÎ¬::C¶¥µã¸ñÊ½ v¶¥µã¸ñÊ½;
-	ÈýÎ¬::tpÊäÈë²¼¾Ö vÊäÈë²¼¾Ö;
-	v¶¥µã¸ñÊ½.fÌí¼Ó(ÈýÎ¬::C¶¥µã¸ñÊ½::eÎ»ÖÃ, 2);
-	v¶¥µã¸ñÊ½.fÌí¼Ó(ÈýÎ¬::C¶¥µã¸ñÊ½::eÑÕÉ«, 4);
-	v×ÅÉ«Æ÷¹¤³§.f±àÒë²¢´´½¨¶¥µã×ÅÉ«Æ÷(m×ÅÉ«Æ÷v, L"×ÅÉ«Æ÷.hlsl", "vs", vÊäÈë²¼¾Ö, v¶¥µã¸ñÊ½);
-	v×ÅÉ«Æ÷¹¤³§.f±àÒë²¢´´½¨¼¸ºÎ×ÅÉ«Æ÷(m×ÅÉ«Æ÷g, L"×ÅÉ«Æ÷.hlsl", "gs");
-	v×ÅÉ«Æ÷¹¤³§.f±àÒë²¢´´½¨ÏñËØ×ÅÉ«Æ÷(m×ÅÉ«Æ÷p, L"×ÅÉ«Æ÷.hlsl", "ps");
-	väÖÈ¾¿ØÖÆ.fs¶¥µã×ÅÉ«Æ÷(m×ÅÉ«Æ÷v.Get());
-	väÖÈ¾¿ØÖÆ.fs¼¸ºÎ×ÅÉ«Æ÷(m×ÅÉ«Æ÷g.Get());
-	väÖÈ¾¿ØÖÆ.fsÏñËØ×ÅÉ«Æ÷(m×ÅÉ«Æ÷p.Get());
-	väÖÈ¾¿ØÖÆ.fsÊäÈë²¼¾Ö(vÊäÈë²¼¾Ö.Get());
-	//¶¥µã
-	v»º³å¹¤³§.f´´½¨»º³å(m¶¥µã»º³å, maÁ£×ÓÊý¾Ý, sizeof(maÁ£×ÓÊý¾Ý), ÈýÎ¬::E»º³å::e¶¥µã);
-	//³£Á¿
-	m³£Á¿.m´°¿Ú´óÐ¡ = ÊýÑ§::SÏòÁ¿2(640, 480);
-	m³£Á¿.mÁ£×Ó´óÐ¡ = cÁ£×Ó°ë¾¶;
-	ÈýÎ¬::tp»º³å v³£Á¿»º³å;
-	v»º³å¹¤³§.f´´½¨»º³å(v³£Á¿»º³å, &m³£Á¿, sizeof(m³£Á¿), ÈýÎ¬::E»º³å::e³£Á¿);
-	väÖÈ¾¿ØÖÆ.fs³£Á¿»º³å(0, v³£Á¿»º³å.Get());
-	//ÆäËü
-	väÖÈ¾¿ØÖÆ.fs¶¥µã»º³å(m¶¥µã»º³å.Get(), sizeof(SÁ£×Ó));
-	väÖÈ¾¿ØÖÆ.fsÍ¼ÔªÍØÆË(ÈýÎ¬::EÍ¼ÔªÍØÆË::eÁÐ±íµã);
-	väÖÈ¾¿ØÖÆ.fs¹âÕ¤»¯(väÖÈ¾×´Ì¬.m¹âÕ¤»¯.mÏÔÊ¾Òþ²ØÃæ.Get());
-	väÖÈ¾¿ØÖÆ.fs»ìºÏ(väÖÈ¾×´Ì¬.m»ìºÏ.mÑÕÉ«µþ¼Ó.Get());
-	väÖÈ¾¿ØÖÆ.fsÉî¶ÈÄ£°å(väÖÈ¾×´Ì¬.mÉî¶ÈÄ£°å.mÕý³£Éî¶Èr.Get());
-	for (int i = 0; i != cÁ£×ÓÊýÁ¿; ++i) {
-		maÁ£×Ó¶ÔÏó[i].mÄ¿±ê = &maÁ£×ÓÊý¾Ý[i];
+#include <cflwå›¾å½¢_d3dç€è‰²å™¨.h>
+#include "å›¾å½¢.h"
+namespace ç€è‰²å™¨ = cflw::å›¾å½¢::d3dç€è‰²å™¨;
+void Cå›¾å½¢::fåˆå§‹åŒ–(HWND açª—å£) {
+	mä¸‰ç»´.fåˆå§‹åŒ–(açª—å£);
+	auto &væ¸²æŸ“æŽ§åˆ¶ = mä¸‰ç»´.fgæ¸²æŸ“æŽ§åˆ¶();
+	auto &væ¸²æŸ“çŠ¶æ€ = mä¸‰ç»´.fgæ¸²æŸ“çŠ¶æ€();
+	auto &vç¼“å†²å·¥åŽ‚ = mä¸‰ç»´.fgç¼“å†²å·¥åŽ‚();
+	//ç€è‰²å™¨
+	ä¸‰ç»´::Cé¡¶ç‚¹æ ¼å¼ vé¡¶ç‚¹æ ¼å¼;
+	ä¸‰ç»´::tpè¾“å…¥å¸ƒå±€ vè¾“å…¥å¸ƒå±€;
+	vé¡¶ç‚¹æ ¼å¼.fæ·»åŠ (ä¸‰ç»´::Cé¡¶ç‚¹æ ¼å¼::eä½ç½®, 2);
+	vé¡¶ç‚¹æ ¼å¼.fæ·»åŠ (ä¸‰ç»´::Cé¡¶ç‚¹æ ¼å¼::eé¢œè‰², 4);
+	ç€è‰²å™¨::Cç€è‰²å™¨å·¥åŽ‚ vç€è‰²å™¨å·¥åŽ‚;
+	vç€è‰²å™¨å·¥åŽ‚.fåˆå§‹åŒ–();
+	ç€è‰²å™¨::tpç€è‰²å™¨ vs, ps, gs;
+	vç€è‰²å™¨å·¥åŽ‚.fç¼–è¯‘é¡¶ç‚¹ç€è‰²å™¨(vs, L"ç€è‰²å™¨.hlsl", "vs");
+	vç€è‰²å™¨å·¥åŽ‚.fç¼–è¯‘å‡ ä½•ç€è‰²å™¨(gs, L"ç€è‰²å™¨.hlsl", "gs");
+	vç€è‰²å™¨å·¥åŽ‚.fç¼–è¯‘åƒç´ ç€è‰²å™¨(ps, L"ç€è‰²å™¨.hlsl", "ps");
+	mä¸‰ç»´.fåˆ›å»ºé¡¶ç‚¹ç€è‰²å™¨(mç€è‰²å™¨v, ç€è‰²å™¨::fcè·¨åº¦(vs));
+	mä¸‰ç»´.fåˆ›å»ºè¾“å…¥å¸ƒå±€(vè¾“å…¥å¸ƒå±€, ç€è‰²å™¨::fcè·¨åº¦(vs), vé¡¶ç‚¹æ ¼å¼);
+	mä¸‰ç»´.fåˆ›å»ºå‡ ä½•ç€è‰²å™¨(mç€è‰²å™¨g, ç€è‰²å™¨::fcè·¨åº¦(gs));
+	mä¸‰ç»´.fåˆ›å»ºåƒç´ ç€è‰²å™¨(mç€è‰²å™¨p, ç€è‰²å™¨::fcè·¨åº¦(ps));
+	væ¸²æŸ“æŽ§åˆ¶.fsé¡¶ç‚¹ç€è‰²å™¨(mç€è‰²å™¨v.Get());
+	væ¸²æŸ“æŽ§åˆ¶.fså‡ ä½•ç€è‰²å™¨(mç€è‰²å™¨g.Get());
+	væ¸²æŸ“æŽ§åˆ¶.fsåƒç´ ç€è‰²å™¨(mç€è‰²å™¨p.Get());
+	væ¸²æŸ“æŽ§åˆ¶.fsè¾“å…¥å¸ƒå±€(vè¾“å…¥å¸ƒå±€.Get());
+	//é¡¶ç‚¹
+	vç¼“å†²å·¥åŽ‚.fåˆ›å»ºç¼“å†²(mé¡¶ç‚¹ç¼“å†², maç²’å­æ•°æ®, sizeof(maç²’å­æ•°æ®), ä¸‰ç»´::Eç¼“å†²::eé¡¶ç‚¹);
+	//å¸¸é‡
+	må¸¸é‡.mçª—å£å¤§å° = æ•°å­¦::Så‘é‡2(640, 480);
+	må¸¸é‡.mç²’å­å¤§å° = cç²’å­åŠå¾„;
+	ä¸‰ç»´::tpç¼“å†² vå¸¸é‡ç¼“å†²;
+	vç¼“å†²å·¥åŽ‚.fåˆ›å»ºç¼“å†²(vå¸¸é‡ç¼“å†², &må¸¸é‡, sizeof(må¸¸é‡), ä¸‰ç»´::Eç¼“å†²::eå¸¸é‡);
+	væ¸²æŸ“æŽ§åˆ¶.fså¸¸é‡ç¼“å†²(0, vå¸¸é‡ç¼“å†².Get());
+	//å…¶å®ƒ
+	væ¸²æŸ“æŽ§åˆ¶.fsé¡¶ç‚¹ç¼“å†²(mé¡¶ç‚¹ç¼“å†².Get(), sizeof(Sç²’å­));
+	væ¸²æŸ“æŽ§åˆ¶.fså›¾å…ƒæ‹“æ‰‘(ä¸‰ç»´::Eå›¾å…ƒæ‹“æ‰‘::eåˆ—è¡¨ç‚¹);
+	væ¸²æŸ“æŽ§åˆ¶.fså…‰æ …åŒ–(væ¸²æŸ“çŠ¶æ€.må…‰æ …åŒ–.mæ˜¾ç¤ºéšè—é¢.Get());
+	væ¸²æŸ“æŽ§åˆ¶.fsæ··åˆ(væ¸²æŸ“çŠ¶æ€.mæ··åˆ.mé¢œè‰²å åŠ .Get());
+	væ¸²æŸ“æŽ§åˆ¶.fsæ·±åº¦æ¨¡æ¿(væ¸²æŸ“çŠ¶æ€.mæ·±åº¦æ¨¡æ¿.mæ­£å¸¸æ·±åº¦r.Get());
+	for (int i = 0; i != cç²’å­æ•°é‡; ++i) {
+		maç²’å­å¯¹è±¡[i].mç›®æ ‡ = &maç²’å­æ•°æ®[i];
 	}
 }
-void CÍ¼ÐÎ::fÏú»Ù() {
-	m×ÅÉ«Æ÷v.Reset();
-	m×ÅÉ«Æ÷p.Reset();
-	mÈýÎ¬.fÏú»Ù();
+void Cå›¾å½¢::fé”€æ¯() {
+	mç€è‰²å™¨v.Reset();
+	mç€è‰²å™¨p.Reset();
+	mä¸‰ç»´.fé”€æ¯();
 }
-void CÍ¼ÐÎ::f¼ÆËã() {
+void Cå›¾å½¢::fè®¡ç®—() {
 	std::for_each(std::execution::par, 
-		std::begin(maÁ£×Ó¶ÔÏó), std::end(maÁ£×Ó¶ÔÏó), 
-		std::bind(&CÁ£×Ó::f¼ÆËã, std::placeholders::_1));
+		std::begin(maç²’å­å¯¹è±¡), std::end(maç²’å­å¯¹è±¡), 
+		std::bind(&Cç²’å­::fè®¡ç®—, std::placeholders::_1));
 }
-void CÍ¼ÐÎ::f¸üÐÂ() {
-	auto &väÖÈ¾¿ØÖÆ = mÈýÎ¬.fgäÖÈ¾¿ØÖÆ();
+void Cå›¾å½¢::fæ›´æ–°() {
+	auto &væ¸²æŸ“æŽ§åˆ¶ = mä¸‰ç»´.fgæ¸²æŸ“æŽ§åˆ¶();
 	std::for_each(std::execution::par_unseq, 
-		std::begin(maÁ£×Ó¶ÔÏó), std::end(maÁ£×Ó¶ÔÏó), 
-		std::bind(&CÁ£×Ó::f¸´ÖÆ, std::placeholders::_1));
-	väÖÈ¾¿ØÖÆ.f¸üÐÂ×ÊÔ´(m¶¥µã»º³å.Get(), maÁ£×ÓÊý¾Ý);
+		std::begin(maç²’å­å¯¹è±¡), std::end(maç²’å­å¯¹è±¡), 
+		std::bind(&Cç²’å­::få¤åˆ¶, std::placeholders::_1));
+	væ¸²æŸ“æŽ§åˆ¶.fæ›´æ–°èµ„æº(mé¡¶ç‚¹ç¼“å†².Get(), maç²’å­æ•°æ®);
 }
-void CÍ¼ÐÎ::fÏÔÊ¾() {
-	auto &väÖÈ¾¿ØÖÆ = mÈýÎ¬.fgäÖÈ¾¿ØÖÆ();
-	väÖÈ¾¿ØÖÆ.fÇåÆÁ();
-	väÖÈ¾¿ØÖÆ.f»æÖÆ(cÁ£×ÓÊýÁ¿);
-	väÖÈ¾¿ØÖÆ.fÏÔÊ¾();
+void Cå›¾å½¢::fæ˜¾ç¤º() {
+	auto &væ¸²æŸ“æŽ§åˆ¶ = mä¸‰ç»´.fgæ¸²æŸ“æŽ§åˆ¶();
+	væ¸²æŸ“æŽ§åˆ¶.fæ¸…å±();
+	væ¸²æŸ“æŽ§åˆ¶.fç»˜åˆ¶(cç²’å­æ•°é‡);
+	væ¸²æŸ“æŽ§åˆ¶.fæ˜¾ç¤º();
 }

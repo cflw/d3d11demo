@@ -1,55 +1,62 @@
-#include "ͼ��.h"
-void Cͼ��::f��ʼ��(HWND a����) {
-	m��ά.f��ʼ��(a����);
-	auto &v��Ⱦ���� = m��ά.fg��Ⱦ����();
-	auto &v��Ⱦ״̬ = m��ά.fg��Ⱦ״̬();
-	auto &v��ɫ������ = m��ά.fg��ɫ������();
-	auto &v���幤�� = m��ά.fg���幤��();
-	��ά::C�����ʽ v�����ʽ;
-	v�����ʽ.f����(��ά::C�����ʽ::eλ��, 2);
-	v�����ʽ.f����(��ά::C�����ʽ::e��ɫ, 4);
-	v��ɫ������.f���벢����������ɫ��(m��ɫ��v, L"��ɫ��.hlsl", "vs", m���벼��, v�����ʽ);
-	v��ɫ������.f���벢����������ɫ��(m��ɫ��p, L"��ɫ��.hlsl", "ps");
-	const S���� va����[] = {
-		{��ѧ::S����2(0, 0.5f), ��ѧ::S��ɫ(1, 0, 0)},
-		{��ѧ::S����2(0.5f, -0.5f), ��ѧ::S��ɫ(0, 1, 0)},
-		{��ѧ::S����2(-0.5f, -0.5f), ��ѧ::S��ɫ(0, 0, 1)}
+﻿#include <cflw图形_d3d着色器.h>
+#include "图形.h"
+namespace 着色器 = cflw::图形::d3d着色器;
+void C图形::f初始化(HWND a窗口) {
+	m三维.f初始化(a窗口);
+	auto &v渲染控制 = m三维.fg渲染控制();
+	auto &v渲染状态 = m三维.fg渲染状态();
+	auto &v缓冲工厂 = m三维.fg缓冲工厂();
+	三维::C顶点格式 v顶点格式;
+	v顶点格式.f添加(三维::C顶点格式::e位置, 2);
+	v顶点格式.f添加(三维::C顶点格式::e颜色, 4);
+	着色器::C着色器工厂 v着色器工厂;
+	v着色器工厂.f初始化();
+	着色器::tp着色器 vs, ps;
+	v着色器工厂.f编译顶点着色器(vs, L"着色器.hlsl", "vs");
+	v着色器工厂.f编译像素着色器(ps, L"着色器.hlsl", "ps");
+	m三维.f创建顶点着色器(m着色器v, 着色器::fc跨度(vs));
+	m三维.f创建输入布局(m输入布局, 着色器::fc跨度(vs), v顶点格式);
+	m三维.f创建像素着色器(m着色器p, 着色器::fc跨度(ps));
+	const S顶点 va顶点[] = {
+		{数学::S向量2(0, 0.5f), 数学::S颜色(1, 0, 0)},
+		{数学::S向量2(0.5f, -0.5f), 数学::S颜色(0, 1, 0)},
+		{数学::S向量2(-0.5f, -0.5f), 数学::S颜色(0, 0, 1)}
 	};
-	v���幤��.f��������(m����, va����, sizeof(va����), ��ά::E����::e����);
+	v缓冲工厂.f创建缓冲(m顶点, va顶点, sizeof(va顶点), 三维::E缓冲::e顶点);
 }
-void Cͼ��::f����() {
-	m��ά.f������Ļ��Դ();
+void C图形::f重置() {
+	m三维.f重置屏幕资源();
 }
-void Cͼ��::f����() {
-	m��ɫ��v.Reset();
-	m��ɫ��p.Reset();
-	m���벼��.Reset();
-	m����.Reset();
-	m��ά.f����();
+void C图形::f销毁() {
+	m着色器v.Reset();
+	m着色器p.Reset();
+	m输入布局.Reset();
+	m顶点.Reset();
+	m三维.f销毁();
 }
-void Cͼ��::f����() {
+void C图形::f计算() {
 
 }
-void Cͼ��::f����() {
+void C图形::f更新() {
 
 }
-void Cͼ��::f��ʾ() {
-	auto &v��Ⱦ���� = m��ά.fg��Ⱦ����();
-	auto &v��Ⱦ״̬ = m��ά.fg��Ⱦ״̬();
-	v��Ⱦ����.f����();
-	v��Ⱦ����.fs���벼��(m���벼��.Get());
-	v��Ⱦ����.fs������ɫ��(m��ɫ��v.Get());
-	v��Ⱦ����.fs������ɫ��(m��ɫ��p.Get());
-	v��Ⱦ����.fs���㻺��(m����.Get(), sizeof(S����));
-	v��Ⱦ����.fs��դ��(v��Ⱦ״̬.m��դ��.m��ʾ������.Get());
-	v��Ⱦ����.fs���(v��Ⱦ״̬.m���.m����͸��.Get());
-	v��Ⱦ����.fs���ģ��(v��Ⱦ״̬.m���ģ��.m�������r.Get());
-	v��Ⱦ����.f����(3);
-	v��Ⱦ����.f��ʾ();
+void C图形::f显示() {
+	auto &v渲染控制 = m三维.fg渲染控制();
+	auto &v渲染状态 = m三维.fg渲染状态();
+	v渲染控制.f清屏();
+	v渲染控制.fs输入布局(m输入布局.Get());
+	v渲染控制.fs顶点着色器(m着色器v.Get());
+	v渲染控制.fs像素着色器(m着色器p.Get());
+	v渲染控制.fs顶点缓冲(m顶点.Get(), sizeof(S顶点));
+	v渲染控制.fs光栅化(v渲染状态.m光栅化.m显示隐藏面.Get());
+	v渲染控制.fs混合(v渲染状态.m混合.m开启透明.Get());
+	v渲染控制.fs深度模板(v渲染状态.m深度模板.m正常深度r.Get());
+	v渲染控制.f绘制(3);
+	v渲染控制.f显示();
 }
-void Cͼ��::fsȫ��(bool a) {
-	m��ά.fsȫ��(a);
+void C图形::fs全屏(bool a) {
+	m三维.fs全屏(a);
 }
-void Cͼ��::fs���ڴ�С(int a��, int a��) {
-	m��ά.fs���ڴ�С(a��, a��);
+void C图形::fs窗口大小(int a宽, int a高) {
+	m三维.fs窗口大小(a宽, a高);
 }

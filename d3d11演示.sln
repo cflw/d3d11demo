@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.28315.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "空白窗口", "空白窗口\空白窗口.vcxproj", "{B4AA899D-CE47-4F8E-86CE-7CC8ED196292}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cflw代码库cpp", "C:\cflw\OneDrive\文档\开发\cflw代码库\cflw代码库.vcxproj", "{AD010D5B-4048-48C8-9BE6-82484BEC32B1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cflw代码库cpp", "%cflw_develop%\cflw代码库\cflw代码库.vcxproj", "{AD010D5B-4048-48C8-9BE6-82484BEC32B1}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "简单三角形", "简单三角形\简单三角形.vcxproj", "{A70B2CFB-A9F3-4BF5-BB08-6E4CD2617A31}"
 EndProject
