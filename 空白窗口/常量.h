@@ -1,4 +1,4 @@
-#pragma once
-constexpr float cÖ¡Ãë = 1.f / 60.f;	//Ò»Ö¡µÈÓÚ¶àÉÙÃë
-constexpr int c´°¿Ú¿í¶È = 640;
-constexpr int c´°¿Ú¸ß¶È = 480;
+ï»¿#pragma once
+constexpr float cå¸§ç§’ = 1.f / 60.f;	//ä¸€å¸§ç­‰äºå¤šå°‘ç§’
+constexpr int cçª—å£å®½åº¦ = 640;
+constexpr int cçª—å£é«˜åº¦ = 480;

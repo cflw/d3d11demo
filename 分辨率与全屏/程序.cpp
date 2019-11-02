@@ -1,13 +1,13 @@
-#include <Windows.h>
-#include <cflwÊ±¼ä.h>
-#include <cflwÊäÈë_win.h>
-#include <cflwÊÓ´°.h>
-#include "Í¼ÐÎ.h"
-#include "³£Á¿.h"
-namespace Ê±¼ä = cflw::Ê±¼ä;
-namespace ÊÓ´° = cflw::ÊÓ´°;
-namespace ÊäÈë = cflw::ÊäÈë::win;
-constexpr std::pair<int, int> ca·Ö±æÂÊ[] = {
+ï»¿#include <Windows.h>
+#include <cflwæ—¶é—´.h>
+#include <cflwè¾“å…¥_win.h>
+#include <cflwè§†çª—.h>
+#include "å›¾å½¢.h"
+#include "å¸¸é‡.h"
+namespace æ—¶é—´ = cflw::æ—¶é—´;
+namespace è§†çª— = cflw::è§†çª—;
+namespace è¾“å…¥ = cflw::è¾“å…¥::win;
+constexpr std::pair<int, int> caåˆ†è¾¨çŽ‡[] = {
 	{800, 600},
 	{1024, 768},
 	{1200, 900},
@@ -15,149 +15,149 @@ constexpr std::pair<int, int> ca·Ö±æÂÊ[] = {
 	{1920, 1080},
 	{1920, 1200},
 };
-constexpr int c·Ö±æÂÊÊý = std::distance(std::begin(ca·Ö±æÂÊ), std::end(ca·Ö±æÂÊ));
-class C³ÌÐò {
+constexpr int cåˆ†è¾¨çŽ‡æ•° = std::distance(std::begin(caåˆ†è¾¨çŽ‡), std::end(caåˆ†è¾¨çŽ‡));
+class Cç¨‹åº {
 public:
-	CÍ¼ÐÎ mÍ¼ÐÎ;
-	Ê±¼ä::C¼ÆÊ±Æ÷ m¼ÆÊ±Æ÷;
-	ÊäÈë::CÊäÈë mÊäÈë;
-	ÊäÈë::tp¼üÅÌ m¼üÅÌ;
-	int m·Ö±æÂÊË÷Òý = 0;
-	bool mÈ«ÆÁ = false;
-	C³ÌÐò() {
-		gÕâ = this;
+	Cå›¾å½¢ må›¾å½¢;
+	æ—¶é—´::Cè®¡æ—¶å™¨ mè®¡æ—¶å™¨;
+	è¾“å…¥::Cè¾“å…¥ mè¾“å…¥;
+	è¾“å…¥::tpé”®ç›˜ mé”®ç›˜;
+	int måˆ†è¾¨çŽ‡ç´¢å¼• = 0;
+	bool må…¨å± = false;
+	Cç¨‹åº() {
+		gè¿™ = this;
 	}
-	void f³õÊ¼»¯(HINSTANCE hInst, HINSTANCE = nullptr, LPSTR = nullptr, int = 0) {
-		mÊµÀý = hInst;
-		f´´½¨´°¿Ú();
-		//Í¼ÐÎ
-		mÍ¼ÐÎ.f³õÊ¼»¯(m´°¿Ú);
-		//ÊäÈë
-		mÊäÈë.f³õÊ¼»¯(m´°¿Ú);
-		mÊäÈë.f´´½¨¼üÅÌ(m¼üÅÌ);
-		//¼ÆÊ±Æ÷
-		m¼ÆÊ±Æ÷.fÖØÖÃ(cÖ¡Ãë);
+	void fåˆå§‹åŒ–(HINSTANCE hInst, HINSTANCE = nullptr, LPSTR = nullptr, int = 0) {
+		må®žä¾‹ = hInst;
+		fåˆ›å»ºçª—å£();
+		//å›¾å½¢
+		må›¾å½¢.fåˆå§‹åŒ–(mçª—å£);
+		//è¾“å…¥
+		mè¾“å…¥.fåˆå§‹åŒ–(mçª—å£);
+		mè¾“å…¥.fåˆ›å»ºé”®ç›˜(mé”®ç›˜);
+		//è®¡æ—¶å™¨
+		mè®¡æ—¶å™¨.fé‡ç½®(cå¸§ç§’);
 	}
-	void fÔËÐÐ() {
-		fÏûÏ¢Ñ­»·();
+	void fè¿è¡Œ() {
+		fæ¶ˆæ¯å¾ªçŽ¯();
 	}
-	void f¹Ø±Õ() {
-		mÍ¼ÐÎ.fÏú»Ù();
+	void få…³é—­() {
+		må›¾å½¢.fé”€æ¯();
 	}
-	void f¼ÆËã() {
-		mÊäÈë.f¸üÐÂ();
-		int v·Ö±æÂÊË÷Òý = m·Ö±æÂÊË÷Òý;
-		if (m¼üÅÌ->f°´¼ü((int)ÊäÈë::E¼üÅÌ°´¼ü::e×ó).f¸Õ°´ÏÂ()) {
-			--v·Ö±æÂÊË÷Òý;
-		} else if (m¼üÅÌ->f°´¼ü((int)ÊäÈë::E¼üÅÌ°´¼ü::eÓÒ).f¸Õ°´ÏÂ()) {
-			++v·Ö±æÂÊË÷Òý;
-		} else if (m¼üÅÌ->f°´¼ü((int)ÊäÈë::E¼üÅÌ°´¼ü::e»Ø³µ).f¸Õ°´ÏÂ() && m¼üÅÌ->f°´¼ü((int)ÊäÈë::E¼üÅÌ°´¼ü::e½»Ìæ).f°´ÏÂ()) {
-			mÈ«ÆÁ = !mÈ«ÆÁ;
-			mÍ¼ÐÎ.fsÈ«ÆÁ(mÈ«ÆÁ);
+	void fè®¡ç®—() {
+		mè¾“å…¥.fæ›´æ–°();
+		int våˆ†è¾¨çŽ‡ç´¢å¼• = måˆ†è¾¨çŽ‡ç´¢å¼•;
+		if (mé”®ç›˜->fæŒ‰é”®((int)è¾“å…¥::Eé”®ç›˜æŒ‰é”®::eå·¦).fåˆšæŒ‰ä¸‹()) {
+			--våˆ†è¾¨çŽ‡ç´¢å¼•;
+		} else if (mé”®ç›˜->fæŒ‰é”®((int)è¾“å…¥::Eé”®ç›˜æŒ‰é”®::eå³).fåˆšæŒ‰ä¸‹()) {
+			++våˆ†è¾¨çŽ‡ç´¢å¼•;
+		} else if (mé”®ç›˜->fæŒ‰é”®((int)è¾“å…¥::Eé”®ç›˜æŒ‰é”®::eå›žè½¦).fåˆšæŒ‰ä¸‹() && mé”®ç›˜->fæŒ‰é”®((int)è¾“å…¥::Eé”®ç›˜æŒ‰é”®::eäº¤æ›¿).fæŒ‰ä¸‹()) {
+			må…¨å± = !må…¨å±;
+			må›¾å½¢.fså…¨å±(må…¨å±);
 		}
-		if (v·Ö±æÂÊË÷Òý != m·Ö±æÂÊË÷Òý) {
-			m·Ö±æÂÊË÷Òý = ÊýÑ§::fÇóÓà(v·Ö±æÂÊË÷Òý, c·Ö±æÂÊÊý);
-			const auto &[v¿í, v¸ß] = ca·Ö±æÂÊ[m·Ö±æÂÊË÷Òý];
-			mÍ¼ÐÎ.fs´°¿Ú´óÐ¡(v¿í, v¸ß);
-			mÍ¼ÐÎ.fÖØÖÃ();
-			//¸Ä±êÌâ
-			std::wstringstream v´°¿Ú±êÌâ;
-			v´°¿Ú±êÌâ << v¿í << L"*" << v¸ß << L",È«ÆÁ" << mÍ¼ÐÎ.mÈýÎ¬.fiÈ«ÆÁ();
-			ÊÓ´°::fs´°¿Ú±êÌâ(m´°¿Ú, v´°¿Ú±êÌâ.str().c_str());
+		if (våˆ†è¾¨çŽ‡ç´¢å¼• != måˆ†è¾¨çŽ‡ç´¢å¼•) {
+			måˆ†è¾¨çŽ‡ç´¢å¼• = æ•°å­¦::fæ±‚ä½™(våˆ†è¾¨çŽ‡ç´¢å¼•, cåˆ†è¾¨çŽ‡æ•°);
+			const auto &[vå®½, vé«˜] = caåˆ†è¾¨çŽ‡[måˆ†è¾¨çŽ‡ç´¢å¼•];
+			må›¾å½¢.fsçª—å£å¤§å°(vå®½, vé«˜);
+			må›¾å½¢.fé‡ç½®();
+			//æ”¹æ ‡é¢˜
+			std::wstringstream vçª—å£æ ‡é¢˜;
+			vçª—å£æ ‡é¢˜ << vå®½ << L"*" << vé«˜ << L",å…¨å±" << må›¾å½¢.mä¸‰ç»´.fiå…¨å±();
+			è§†çª—::fsçª—å£æ ‡é¢˜(mçª—å£, vçª—å£æ ‡é¢˜.str().c_str());
 		}
-		mÍ¼ÐÎ.f¼ÆËã();
+		må›¾å½¢.fè®¡ç®—();
 	}
-	void f¸üÐÂ() {
-		mÍ¼ÐÎ.f¸üÐÂ();
+	void fæ›´æ–°() {
+		må›¾å½¢.fæ›´æ–°();
 	}
-	void fÏÔÊ¾() {
-		mÍ¼ÐÎ.fÏÔÊ¾();
+	void fæ˜¾ç¤º() {
+		må›¾å½¢.fæ˜¾ç¤º();
 	}
-	//ÏûÏ¢¹ý³Ì
-	static LRESULT WINAPI f´°¿Ú¹ý³Ì(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
-		gÕâ->mÊäÈë.f´°¿ÚÏûÏ¢(msg, wParam, lParam);
+	//æ¶ˆæ¯è¿‡ç¨‹
+	static LRESULT WINAPI fçª—å£è¿‡ç¨‹(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
+		gè¿™->mè¾“å…¥.fçª—å£æ¶ˆæ¯(msg, wParam, lParam);
 		switch (msg) {
 		case WM_DESTROY:
 			PostQuitMessage(0);
 			return 0;
 		}
-		//Ê¹ÓÃÄ¬ÈÏ´¦Àí
+		//ä½¿ç”¨é»˜è®¤å¤„ç†
 		return DefWindowProc(hWnd, msg, wParam, lParam);
 	}
-	//´´½¨´°¿Ú
-	void f´´½¨´°¿Ú() {
-		//×¢²á´°¿Ú
+	//åˆ›å»ºçª—å£
+	void fåˆ›å»ºçª—å£() {
+		//æ³¨å†Œçª—å£
 		WNDCLASSEX wc;
-		wc.cbSize = sizeof(WNDCLASSEX);			//Ê¹ÓÃsizeof(WNDCLASSEX)
-		wc.style = CS_CLASSDC;					//´°¿ÚÀàÐÍ
-		wc.lpfnWndProc = f´°¿Ú¹ý³Ì;					//´°¿Ú¹ý³Ì
-		wc.cbClsExtra = 0L;							//À©Õ¹:
-		wc.cbWndExtra = 0L;							//À©Õ¹:
-		wc.hInstance = mÊµÀý;						//ÊµÀý¾ä±ú
-		wc.hIcon = LoadIcon(nullptr, IDI_WINLOGO);	//ÔØÈëÄ¬ÈÏÍ¼±ê
-		wc.hCursor = LoadCursor(nullptr, IDC_ARROW);	//ÔØÈëÄ¬ÈÏ¹â±ê
-		wc.hbrBackground = nullptr;							//²»ÐèÒª±³¾°
-		wc.lpszMenuName = nullptr;							//²»ÐèÒª²Ëµ¥
-		wc.lpszClassName = L"´°¿ÚÀà";					//ÉèÖÃÀàÃû
+		wc.cbSize = sizeof(WNDCLASSEX);			//ä½¿ç”¨sizeof(WNDCLASSEX)
+		wc.style = CS_CLASSDC;					//çª—å£ç±»åž‹
+		wc.lpfnWndProc = fçª—å£è¿‡ç¨‹;					//çª—å£è¿‡ç¨‹
+		wc.cbClsExtra = 0L;							//æ‰©å±•:
+		wc.cbWndExtra = 0L;							//æ‰©å±•:
+		wc.hInstance = må®žä¾‹;						//å®žä¾‹å¥æŸ„
+		wc.hIcon = LoadIcon(nullptr, IDI_WINLOGO);	//è½½å…¥é»˜è®¤å›¾æ ‡
+		wc.hCursor = LoadCursor(nullptr, IDC_ARROW);	//è½½å…¥é»˜è®¤å…‰æ ‡
+		wc.hbrBackground = nullptr;							//ä¸éœ€è¦èƒŒæ™¯
+		wc.lpszMenuName = nullptr;							//ä¸éœ€è¦èœå•
+		wc.lpszClassName = L"çª—å£ç±»";					//è®¾ç½®ç±»å
 		wc.hIconSm = nullptr;
 		RegisterClassEx(&wc);
-		//¼ÆËã´°¿Ú´óÐ¡
-		RECT v´°¿Ú¾ØÐÎ = {0, 0, c´°¿Ú¿í¶È, c´°¿Ú¸ß¶È};
-		const DWORD	c´°¿ÚÑùÊ½ = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX;
-		const DWORD	c´°¿ÚÑùÊ½ex = WS_EX_APPWINDOW | WS_EX_WINDOWEDGE;
-		AdjustWindowRectEx(&v´°¿Ú¾ØÐÎ, c´°¿ÚÑùÊ½, FALSE, c´°¿ÚÑùÊ½ex);
-		m´°¿Ú´óÐ¡[0] = v´°¿Ú¾ØÐÎ.right - v´°¿Ú¾ØÐÎ.left;
-		m´°¿Ú´óÐ¡[1] = v´°¿Ú¾ØÐÎ.bottom - v´°¿Ú¾ØÐÎ.top;
-		//´´½¨´°¿Ú
-		m´°¿Ú = CreateWindowExW(
-			c´°¿ÚÑùÊ½ex,
-			L"´°¿ÚÀà",	//´°¿ÚÀàÃû
-			L"´°¿Ú±êÌâ",					//´°¿Ú±êÌâ
-			c´°¿ÚÑùÊ½,			//´°¿ÚÑùÊ½
-			CW_USEDEFAULT, CW_USEDEFAULT,	//×ø±ê
-			m´°¿Ú´óÐ¡[0], m´°¿Ú´óÐ¡[1],		//´°¿Ú³ß´ç
-			GetDesktopWindow(),				//´°¿Ú¾ä±ú²ÎÊý
-			nullptr,							//²Ëµ¥¾ä±ú
-			wc.hInstance,					//ÊµÀý¾ä±ú
-			nullptr);							//²ÎÊý
-		//ÏÔÊ¾´°¿Ú
-		ShowWindow(m´°¿Ú, SW_SHOWDEFAULT);
-		UpdateWindow(m´°¿Ú);
-		//È¡´°¿Ú¿Í»§Çø´óÐ¡
-		GetClientRect(m´°¿Ú, &v´°¿Ú¾ØÐÎ);
-		m´°¿Ú´óÐ¡[0] = v´°¿Ú¾ØÐÎ.right - v´°¿Ú¾ØÐÎ.left;
-		m´°¿Ú´óÐ¡[1] = v´°¿Ú¾ØÐÎ.bottom - v´°¿Ú¾ØÐÎ.top;
+		//è®¡ç®—çª—å£å¤§å°
+		RECT vçª—å£çŸ©å½¢ = {0, 0, cçª—å£å®½åº¦, cçª—å£é«˜åº¦};
+		const DWORD	cçª—å£æ ·å¼ = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX;
+		const DWORD	cçª—å£æ ·å¼ex = WS_EX_APPWINDOW | WS_EX_WINDOWEDGE;
+		AdjustWindowRectEx(&vçª—å£çŸ©å½¢, cçª—å£æ ·å¼, FALSE, cçª—å£æ ·å¼ex);
+		mçª—å£å¤§å°[0] = vçª—å£çŸ©å½¢.right - vçª—å£çŸ©å½¢.left;
+		mçª—å£å¤§å°[1] = vçª—å£çŸ©å½¢.bottom - vçª—å£çŸ©å½¢.top;
+		//åˆ›å»ºçª—å£
+		mçª—å£ = CreateWindowExW(
+			cçª—å£æ ·å¼ex,
+			L"çª—å£ç±»",	//çª—å£ç±»å
+			L"çª—å£æ ‡é¢˜",					//çª—å£æ ‡é¢˜
+			cçª—å£æ ·å¼,			//çª—å£æ ·å¼
+			CW_USEDEFAULT, CW_USEDEFAULT,	//åæ ‡
+			mçª—å£å¤§å°[0], mçª—å£å¤§å°[1],		//çª—å£å°ºå¯¸
+			GetDesktopWindow(),				//çª—å£å¥æŸ„å‚æ•°
+			nullptr,							//èœå•å¥æŸ„
+			wc.hInstance,					//å®žä¾‹å¥æŸ„
+			nullptr);							//å‚æ•°
+		//æ˜¾ç¤ºçª—å£
+		ShowWindow(mçª—å£, SW_SHOWDEFAULT);
+		UpdateWindow(mçª—å£);
+		//å–çª—å£å®¢æˆ·åŒºå¤§å°
+		GetClientRect(mçª—å£, &vçª—å£çŸ©å½¢);
+		mçª—å£å¤§å°[0] = vçª—å£çŸ©å½¢.right - vçª—å£çŸ©å½¢.left;
+		mçª—å£å¤§å°[1] = vçª—å£çŸ©å½¢.bottom - vçª—å£çŸ©å½¢.top;
 	}
-	//ÏûÏ¢Ñ­»·
-	void fÏûÏ¢Ñ­»·() {
+	//æ¶ˆæ¯å¾ªçŽ¯
+	void fæ¶ˆæ¯å¾ªçŽ¯() {
 		MSG msg;
 		ZeroMemory(&msg, sizeof(msg));
-		while (msg.message != WM_QUIT) {	//ÏûÏ¢Ñ­»·
-			if (PeekMessage(&msg, nullptr, 0U, 0U, PM_REMOVE)) {	//ÓÐÏûÏ¢Ê±µÄ´¦Àí,²»ÒªÐÞ¸Ä
+		while (msg.message != WM_QUIT) {	//æ¶ˆæ¯å¾ªçŽ¯
+			if (PeekMessage(&msg, nullptr, 0U, 0U, PM_REMOVE)) {	//æœ‰æ¶ˆæ¯æ—¶çš„å¤„ç†,ä¸è¦ä¿®æ”¹
 				TranslateMessage(&msg);
 				DispatchMessage(&msg);
-			} else {	//Ã»ÓÐÏûÏ¢Ê±µÄ´¦Àí
-				if (m¼ÆÊ±Æ÷.fµÎ´ð()) {
-					f¼ÆËã();
-					f¸üÐÂ();
-					fÏÔÊ¾();
+			} else {	//æ²¡æœ‰æ¶ˆæ¯æ—¶çš„å¤„ç†
+				if (mè®¡æ—¶å™¨.fæ»´ç­”()) {
+					fè®¡ç®—();
+					fæ›´æ–°();
+					fæ˜¾ç¤º();
 				} else {
 					Sleep(0);
 				}
 			}
-		}	//ÏûÏ¢Ñ­»·½áÊø
+		}	//æ¶ˆæ¯å¾ªçŽ¯ç»“æŸ
 	}
-	//È«¾Ö±äÁ¿
-	HINSTANCE mÊµÀý;
-	HWND m´°¿Ú;
-	int m´°¿Ú´óÐ¡[2];
-	static C³ÌÐò *gÕâ;
+	//å…¨å±€å˜é‡
+	HINSTANCE må®žä¾‹;
+	HWND mçª—å£;
+	int mçª—å£å¤§å°[2];
+	static Cç¨‹åº *gè¿™;
 };
-C³ÌÐò *C³ÌÐò::gÕâ = nullptr;
-//Ö÷º¯Êý
+Cç¨‹åº *Cç¨‹åº::gè¿™ = nullptr;
+//ä¸»å‡½æ•°
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int) {
-	C³ÌÐò v³ÌÐò;
-	v³ÌÐò.f³õÊ¼»¯(hInst);
-	v³ÌÐò.fÔËÐÐ();
-	v³ÌÐò.f¹Ø±Õ();
+	Cç¨‹åº vç¨‹åº;
+	vç¨‹åº.fåˆå§‹åŒ–(hInst);
+	vç¨‹åº.fè¿è¡Œ();
+	vç¨‹åº.få…³é—­();
 }

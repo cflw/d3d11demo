@@ -1,14 +1,14 @@
-#pragma once
-constexpr float cÖ¡Ãë = 1.f / 60.f;	//Ò»Ö¡µÈÓÚ¶àÉÙÃë
-constexpr int c´°¿Ú¿í¶È = 640;
-constexpr int c´°¿Ú¸ß¶È = 480;
-constexpr int c»ù´¡¿í¶È = 640;
-constexpr int c»ù´¡¸ß¶È = 480;
-constexpr float cËõ·Å = (float)c´°¿Ú¸ß¶È / (float)c»ù´¡¸ß¶È;
+ï»¿#pragma once
+constexpr float cå¸§ç§’ = 1.f / 60.f;	//ä¸€å¸§ç­‰äºå¤šå°‘ç§’
+constexpr int cçª—å£å®½åº¦ = 640;
+constexpr int cçª—å£é«˜åº¦ = 480;
+constexpr int cåŸºç¡€å®½åº¦ = 640;
+constexpr int cåŸºç¡€é«˜åº¦ = 480;
+constexpr float cç¼©æ”¾ = (float)cçª—å£é«˜åº¦ / (float)cåŸºç¡€é«˜åº¦;
 
-constexpr int cÈı½ÇĞÎÊı = 7;
-constexpr int cÈı½ÇĞÎ¶¥µãÊı = cÈı½ÇĞÎÊı * 3;
-constexpr int cÔ²±ßÊı = 32;
-constexpr float cÔ²°ë¾¶ = 200;
-constexpr int cÔ²¶¥µãÊı = cÔ²±ßÊı + 1;
-constexpr int cÔ²Ë÷ÒıÊı = cÔ²±ßÊı * 3;
+constexpr int cä¸‰è§’å½¢æ•° = 7;
+constexpr int cä¸‰è§’å½¢é¡¶ç‚¹æ•° = cä¸‰è§’å½¢æ•° * 3;
+constexpr int cåœ†è¾¹æ•° = 32;
+constexpr float cåœ†åŠå¾„ = 200;
+constexpr int cåœ†é¡¶ç‚¹æ•° = cåœ†è¾¹æ•° + 1;
+constexpr int cåœ†ç´¢å¼•æ•° = cåœ†è¾¹æ•° * 3;

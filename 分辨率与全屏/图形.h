@@ -1,25 +1,25 @@
-#pragma once
-#include <cflwÊıÑ§.h>
-#include <cflwÍ¼ĞÎ_d3d11.h>
-namespace ÊıÑ§ = cflw::ÊıÑ§;
-namespace ÈıÎ¬ = cflw::Í¼ĞÎ::d3d11;
-class CÍ¼ĞÎ {
+ï»¿#pragma once
+#include <cflwæ•°å­¦.h>
+#include <cflwå›¾å½¢_d3d11.h>
+namespace æ•°å­¦ = cflw::æ•°å­¦;
+namespace ä¸‰ç»´ = cflw::å›¾å½¢::d3d11;
+class Cå›¾å½¢ {
 public:
-	struct S¶¥µã {
-		ÊıÑ§::SÏòÁ¿2 m×ø±ê;
-		ÊıÑ§::SÑÕÉ« mÑÕÉ«;
+	struct Sé¡¶ç‚¹ {
+		æ•°å­¦::Så‘é‡2 måæ ‡;
+		æ•°å­¦::Sé¢œè‰² mé¢œè‰²;
 	};
-	void f³õÊ¼»¯(HWND);
-	void fÖØÖÃ();
-	void fÏú»Ù();
-	void f¼ÆËã();
-	void f¸üĞÂ();
-	void fÏÔÊ¾();
-	void fsÈ«ÆÁ(bool);
-	void fs´°¿Ú´óĞ¡(int, int);
-	ÈıÎ¬::CÈıÎ¬ mÈıÎ¬;
-	ÈıÎ¬::tp¶¥µã×ÅÉ«Æ÷ m×ÅÉ«Æ÷v;
-	ÈıÎ¬::tpÏñËØ×ÅÉ«Æ÷ m×ÅÉ«Æ÷p;
-	ÈıÎ¬::tpÊäÈë²¼¾Ö mÊäÈë²¼¾Ö;
-	ÈıÎ¬::tp»º³å m¶¥µã;
+	void fåˆå§‹åŒ–(HWND);
+	void fé‡ç½®();
+	void fé”€æ¯();
+	void fè®¡ç®—();
+	void fæ›´æ–°();
+	void fæ˜¾ç¤º();
+	void fså…¨å±(bool);
+	void fsçª—å£å¤§å°(int, int);
+	ä¸‰ç»´::Cä¸‰ç»´ mä¸‰ç»´;
+	ä¸‰ç»´::tpé¡¶ç‚¹ç€è‰²å™¨ mç€è‰²å™¨v;
+	ä¸‰ç»´::tpåƒç´ ç€è‰²å™¨ mç€è‰²å™¨p;
+	ä¸‰ç»´::tpè¾“å…¥å¸ƒå±€ mè¾“å…¥å¸ƒå±€;
+	ä¸‰ç»´::tpç¼“å†² mé¡¶ç‚¹;
 };

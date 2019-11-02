@@ -181,10 +181,13 @@
   <ItemGroup>
     <FxCompile Include="着色器.hlsl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\cflw\OneDrive\文档\开发\cflw代码库\cflw代码库.vcxproj">
+    <ProjectReference Include="$(cflw_develop)\cflw代码库\cflw代码库.vcxproj">
       <Project>{ad010d5b-4048-48c8-9be6-82484bec32b1}</Project>
     </ProjectReference>
   </ItemGroup>

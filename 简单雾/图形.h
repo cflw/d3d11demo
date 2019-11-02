@@ -1,25 +1,25 @@
-#pragma once
-#include <cflwÊıÑ§.h>
-#include <cflwÊıÑ§_ÏòÁ¿.h>
-#include <cflwÊıÑ§_Í¼ĞÎ.h>
-#include <cflwÊıÑ§_¾ØÕó.h>
-#include <cflwÍ¼ĞÎ_d3d11.h>
-namespace ÊıÑ§ = cflw::ÊıÑ§;
-namespace ÈıÎ¬ = cflw::Í¼ĞÎ::d3d11;
-class CÍ¼ĞÎ {
+ï»¿#pragma once
+#include <cflwæ•°å­¦.h>
+#include <cflwæ•°å­¦_å‘é‡.h>
+#include <cflwæ•°å­¦_å›¾å½¢.h>
+#include <cflwæ•°å­¦_çŸ©é˜µ.h>
+#include <cflwå›¾å½¢_d3d11.h>
+namespace æ•°å­¦ = cflw::æ•°å­¦;
+namespace ä¸‰ç»´ = cflw::å›¾å½¢::d3d11;
+class Cå›¾å½¢ {
 public:
-	void f³õÊ¼»¯(HWND);
-	void fÏú»Ù();
-	void f¼ÆËã();
-	void f¸üĞÂ();
-	void fÏÔÊ¾();
-	ÈıÎ¬::CÈıÎ¬ mÈıÎ¬;
-	ÈıÎ¬::tp¶¥µã×ÅÉ«Æ÷ m×ÅÉ«Æ÷v;
-	ÈıÎ¬::tpÏñËØ×ÅÉ«Æ÷ m×ÅÉ«Æ÷p;
-	ÈıÎ¬::tp»º³å m³£Á¿;
-	ÊıÑ§::SÊÀ½ç¾ØÕó3 mÊÀ½ç;
-	struct S×Ü¾ØÕó {
-		ÊıÑ§::S¾ØÕó4 mÊÀ½ç, mÊÓÍ¼, mÍ¶Ó°;
-	} m×Ü¾ØÕó;
-	ÊıÑ§::SÏòÁ¿2 m´°¿Ú´óĞ¡;
+	void fåˆå§‹åŒ–(HWND);
+	void fé”€æ¯();
+	void fè®¡ç®—();
+	void fæ›´æ–°();
+	void fæ˜¾ç¤º();
+	ä¸‰ç»´::Cä¸‰ç»´ mä¸‰ç»´;
+	ä¸‰ç»´::tpé¡¶ç‚¹ç€è‰²å™¨ mç€è‰²å™¨v;
+	ä¸‰ç»´::tpåƒç´ ç€è‰²å™¨ mç€è‰²å™¨p;
+	ä¸‰ç»´::tpç¼“å†² må¸¸é‡;
+	æ•°å­¦::Sä¸–ç•ŒçŸ©é˜µ3 mä¸–ç•Œ;
+	struct Sæ€»çŸ©é˜µ {
+		æ•°å­¦::SçŸ©é˜µ4 mä¸–ç•Œ, mè§†å›¾, mæŠ•å½±;
+	} mæ€»çŸ©é˜µ;
+	æ•°å­¦::Så‘é‡2 mçª—å£å¤§å°;
 };

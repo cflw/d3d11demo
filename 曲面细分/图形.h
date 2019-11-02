@@ -1,14 +1,14 @@
-#pragma once
-#include <cflwÊıÑ§.h>
-#include <cflwÍ¼ĞÎ_d3d11.h>
-namespace ÊıÑ§ = cflw::ÊıÑ§;
-namespace ÈıÎ¬ = cflw::Í¼ĞÎ::d3d11;
-class CÍ¼ĞÎ {
+ï»¿#pragma once
+#include <cflwæ•°å­¦.h>
+#include <cflwå›¾å½¢_d3d11.h>
+namespace æ•°å­¦ = cflw::æ•°å­¦;
+namespace ä¸‰ç»´ = cflw::å›¾å½¢::d3d11;
+class Cå›¾å½¢ {
 public:
-	void f³õÊ¼»¯(HWND);
-	void fÏú»Ù();
-	void f¼ÆËã();
-	void f¸üĞÂ();
-	void fÏÔÊ¾();
-	ÈıÎ¬::CÈıÎ¬ mÈıÎ¬;
+	void fåˆå§‹åŒ–(HWND);
+	void fé”€æ¯();
+	void fè®¡ç®—();
+	void fæ›´æ–°();
+	void fæ˜¾ç¤º();
+	ä¸‰ç»´::Cä¸‰ç»´ mä¸‰ç»´;
 };
