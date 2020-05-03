@@ -20,8 +20,8 @@ PS vs(VS i) {
 }
 float2 transform(float2 a) {
 	float2 v = a;
-	v.x /= g_window.x;
-	v.y /= g_window.y;
+	v.x /= g_window.x * 0.5f;
+	v.y /= g_window.y * 0.5f;
 	return v;
 }
 [maxvertexcount(36)]

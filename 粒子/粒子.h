@@ -1,22 +1,22 @@
-#pragma once
-#include "³£Á¿.h"
-#include <cflwÊıÑ§.h>
-#include <cflwÊıÑ§_ÏòÁ¿.h>
-#include <cflwÊıÑ§_Í¼ĞÎ.h>
-namespace ÊıÑ§ = cflw::ÊıÑ§;
-struct SÁ£×Ó {
-	ÊıÑ§::SÏòÁ¿2 m×ø±ê;
-	ÊıÑ§::SÑÕÉ« mÑÕÉ«;
+ï»¿#pragma once
+#include "å¸¸é‡.h"
+#include <cflwæ•°å­¦.h>
+#include <cflwæ•°å­¦_å‘é‡.h>
+#include <cflwæ•°å­¦_å›¾å½¢.h>
+namespace æ•°å­¦ = cflw::æ•°å­¦;
+struct Sç²’å­ {
+	æ•°å­¦::Så‘é‡2 måæ ‡;
+	æ•°å­¦::Sé¢œè‰² mé¢œè‰²;
 };
-class CÁ£×Ó {
+class Cç²’å­ {
 public:
-	void f³õÊ¼»¯();
-	void f¼ÆËã();
-	void f¸´ÖÆ();
-	ÊıÑ§::SÏòÁ¿2 m×ø±ê;
-	ÊıÑ§::SÏòÁ¿2 mËÙ¶È;
-	ÊıÑ§::SÑÕÉ« mÑÕÉ«;
-	float mÊÙÃü = 0;
-	float mÊ±¼ä = 0;
-	SÁ£×Ó *mÄ¿±ê;
+	void fåˆå§‹åŒ–();
+	void fè®¡ç®—();
+	void få¤åˆ¶();
+	æ•°å­¦::Så‘é‡2 måæ ‡;
+	æ•°å­¦::Så‘é‡2 mé€Ÿåº¦;
+	æ•°å­¦::Sé¢œè‰² mé¢œè‰²;
+	float må¯¿å‘½ = 0;
+	float mæ—¶é—´ = 0;
+	Sç²’å­ *mç›®æ ‡;
 };

@@ -35,6 +35,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "高级光", "高级光\高�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "简单二维", "简单二维\简单二维.vcxproj", "{56562AF9-59D3-42D2-9E0F-F4247FA9F591}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "平面光线追踪", "平面光线追踪\平面光线追踪.vcxproj", "{9F7DBF07-DFE3-4A77-ABBD-6AA4D6C85461}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -171,6 +173,14 @@ Global
 		{56562AF9-59D3-42D2-9E0F-F4247FA9F591}.Release|x64.Build.0 = Release|x64
 		{56562AF9-59D3-42D2-9E0F-F4247FA9F591}.Release|x86.ActiveCfg = Release|Win32
 		{56562AF9-59D3-42D2-9E0F-F4247FA9F591}.Release|x86.Build.0 = Release|Win32
+		{9F7DBF07-DFE3-4A77-ABBD-6AA4D6C85461}.Debug|x64.ActiveCfg = Debug|x64
+		{9F7DBF07-DFE3-4A77-ABBD-6AA4D6C85461}.Debug|x64.Build.0 = Debug|x64
+		{9F7DBF07-DFE3-4A77-ABBD-6AA4D6C85461}.Debug|x86.ActiveCfg = Debug|Win32
+		{9F7DBF07-DFE3-4A77-ABBD-6AA4D6C85461}.Debug|x86.Build.0 = Debug|Win32
+		{9F7DBF07-DFE3-4A77-ABBD-6AA4D6C85461}.Release|x64.ActiveCfg = Release|x64
+		{9F7DBF07-DFE3-4A77-ABBD-6AA4D6C85461}.Release|x64.Build.0 = Release|x64
+		{9F7DBF07-DFE3-4A77-ABBD-6AA4D6C85461}.Release|x86.ActiveCfg = Release|Win32
+		{9F7DBF07-DFE3-4A77-ABBD-6AA4D6C85461}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

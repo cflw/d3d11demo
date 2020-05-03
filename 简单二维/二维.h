@@ -9,7 +9,7 @@ class C坐标转换;
 class C二维 {
 public:
 	//常量
-	static constexpr int c圆形边数 = 16;
+	static constexpr int c圆形边数 = 32;
 	static constexpr int c圆形顶点数 = c圆形边数;
 	static constexpr int c四分圆边数 = c圆形边数 / 4;
 	static constexpr int c最大顶点数 = c圆形边数;
