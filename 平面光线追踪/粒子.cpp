@@ -13,14 +13,15 @@ void C光::f计算() {
 	m时间 += c帧秒;
 }
 float C光::fg方向() const {
-	return m方向;
-	//return m方向 + std::sin(m时间 * 0.5f) * c旋转角度;
+	//return m方向;
+	return m方向 + std::sin(m时间 * 0.5f) * c旋转角度;
 }
-S顶点 C光::fg顶点0() const {
-	return {m坐标, 数学::S向量2::fc相同(m宽度0), m颜色};
-}
-S顶点 C光::fg顶点1() const {
-	return {m坐标 + 数学::S向量2::fc方向r(c长度, fg方向()), 数学::S向量2::fc相同(m宽度1), m颜色};
+S光顶点 C光::fg顶点(float x, float y) const {
+	const float v边缘方向 = std::atan2(m半宽1 - m半宽0, c长度);
+	const float v相对方向 = std::lerp(0, v边缘方向, y);
+	const 数学::S向量2 v相对坐标 = {c长度 * x, std::lerp(m半宽0, m半宽1, x) * y};
+	const float v光方向 = fg方向();
+	return {m坐标 + v相对坐标.f旋转r(v光方向), 数学::S向量2::fc方向r(1, v光方向 + v相对方向), m颜色};
 }
 //==============================================================================
 // 圆
@@ -46,7 +47,7 @@ void C圆::f计算() {
 数学::S向量2 C圆::fg半径向量() const {
 	return 数学::S向量2::fc相同(m半径);
 }
-S顶点 C圆::fg顶点() const {
+S圆顶点 C圆::fg顶点() const {
 	return {m坐标, fg半径向量(), m颜色};
 }
 S圆常量 C圆::fg常量() const {

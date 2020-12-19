@@ -1,15 +1,18 @@
 cbuffer cb0 : register(b0) {
 	float2 g_window;
 }
-cbuffer cb1 : register(b1) {
-	float4 g_color;
-}
-float4 vs(float2 pos : POSITION) : SV_POSITION {
-	float4 v = float4(pos, 0, 1);
-	v.x /= g_window.x;
-	v.y /= g_window.y;
+struct PS {
+	float4 pos: SV_POSITION;
+	float4 color: COLOR0;
+};
+PS vs(float2 pos : POSITION, float4 color : COLOR0) {
+	PS v;
+	v.pos = float4(pos, 0, 1);
+	v.pos.x /= g_window.x;
+	v.pos.y /= g_window.y;
+	v.color = color;
 	return v;
 }
-float4 ps(float4 pos : SV_POSITION) : SV_TARGET {
-	return g_color;
+float4 ps(PS i) : SV_TARGET {
+	return i.color;
 }

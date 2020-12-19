@@ -5,34 +5,24 @@
 namespace 数学 = cflw::数学;
 namespace 三维 = cflw::图形::d3d11;
 class C画图形;
-class C坐标转换;
+struct S顶点 {
+	数学::S向量2 m坐标;
+	数学::S颜色 m颜色;
+};
 class C二维 {
 public:
-	//常量
-	static constexpr int c圆形边数 = 32;
-	static constexpr int c圆形顶点数 = c圆形边数;
-	static constexpr int c四分圆边数 = c圆形边数 / 4;
-	static constexpr int c最大顶点数 = c圆形边数;
-	static constexpr uint16_t ca矩形索引[] = {
-		0, 1, 2,
-		1, 3, 2,
-	};
-	static constexpr int c矩形索引数 = _countof(ca矩形索引);
-	static constexpr int c圆形索引数 = (c圆形边数 - 2) * 3;
-	static constexpr int c最大索引数 = c圆形索引数;
+	class C资源管理;
 	//函数
+	C二维();
+	~C二维();
 	void f初始化(三维::C三维 &);
-	void f准备();
+	void f开始();
+	void f结束();
 	std::shared_ptr<C画图形> fc画图形();
+	C资源管理 &fg资源管理();
 public:
 	三维::C三维 *m三维 = nullptr;
-	struct S资源 {
-		三维::tp输入布局 m输入布局;
-		三维::tp缓冲 m顶点缓冲, m矩形索引缓冲, m圆形索引缓冲;
-		三维::tp顶点着色器 m着色器v;
-		三维::tp像素着色器 m着色器p;
-		三维::tp缓冲 m顶点常量缓冲, m像素常量缓冲;
-	} m资源;
+	std::unique_ptr<C资源管理> m资源管理;
 };
 class C画图形 {
 public:
@@ -55,10 +45,9 @@ public:
 	void f填充圆形(const 数学::S圆形 &);
 	void f填充椭圆(const 数学::S椭圆 &);
 	void f填充圆角矩形(const 数学::S圆角矩形 &);
+	void f填充三角形(const 数学::S三角形 &);
 public:
-	三维::C三维 *m三维 = nullptr;
-	三维::C渲染控制 *m渲染控制 = nullptr;
-	C二维::S资源 *m资源 = nullptr;
-	数学::S颜色 m颜色;
-	float m线条宽度 = 1;
+	C二维::C资源管理 *m资源管理 = nullptr;
+	数学::S颜色 m颜色 = 数学::S颜色::c白;
+	float m线条宽度 = 2;
 };

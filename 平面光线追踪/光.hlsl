@@ -14,8 +14,14 @@ cbuffer cb1 : register(b1) {
 }
 struct VS {
 	float2 m_pos0 : POSITION0;	//原始坐标
-	float2 m_width : POSITION1;	//光线宽,只用[0]
+	float2 m_direction : POSITION1;	//光线方向
 	float4 m_color : COLOR0;
+};
+typedef VS HS;
+typedef VS DS;
+struct HS_CONSTANT {
+	float EdgeTess[4] : SV_TessFactor;
+	float InsideTess[2] : SV_InsideTessFactor;
 };
 struct PS {
 	float4 m_pos : SV_POSITION;	//渲染坐标
@@ -24,7 +30,7 @@ struct PS {
 	float2 m_direction : POSITION1;	//光线的反向
 };
 //着色器
-VS vs(VS input) {
+HS vs(VS input) {
 	return input;
 }
 float2 transform(float2 a) {
@@ -36,40 +42,57 @@ float2 transform(float2 a) {
 float vector2_direction(float2 p) {	//S向量2::fg方向r
 	return atan2(p.y, p.x);
 }
-[maxvertexcount(6)]
-void gs(line VS input[2], inout TriangleStream<PS> output) {
-	//线条展开成四边形
-	PS p[4];
-	float2 v_direction0 = normalize(input[1].m_pos0 - input[0].m_pos0);	//光的方向
-	float v_direction_s = vector2_direction(v_direction0);	//光的方向(标量)
-	float v_vertical_s = v_direction_s + half_pi;
-	float2 v_vertical = float2(cos(v_vertical_s), sin(v_vertical_s));
-	//点坐标
-	p[0].m_pos0 = input[0].m_pos0 + v_vertical * input[0].m_width[0];
-	p[1].m_pos0 = input[0].m_pos0 - v_vertical * input[0].m_width[0];
-	p[2].m_pos0 = input[1].m_pos0 + v_vertical * input[1].m_width[0];
-	p[3].m_pos0 = input[1].m_pos0 - v_vertical * input[1].m_width[0];
-	//光线方向
-	p[0].m_direction = p[2].m_direction = normalize(p[0].m_pos0 - p[2].m_pos0);
-	p[1].m_direction = p[3].m_direction = normalize(p[1].m_pos0 - p[3].m_pos0);
-	//颜色
-	p[0].m_color = p[1].m_color = input[0].m_color;
-	p[2].m_color = p[3].m_color = input[1].m_color;
-	//渲染坐标
-	for (int input = 0; input != 4; ++input) {
-		p[input].m_pos = float4(transform(p[input].m_pos0), 0, 1);
-	}
-	//输出
-	output.Append(p[0]);
-	output.Append(p[1]);
-	output.Append(p[3]);
-	output.RestartStrip();
-
-	output.Append(p[0]);
-	output.Append(p[2]);
-	output.Append(p[3]);
-	output.RestartStrip();
+static const uint NUM_CONTROL_POINTS = 4;
+HS_CONSTANT hs_constant(
+	InputPatch<HS, NUM_CONTROL_POINTS> input,
+	uint patchid : SV_PrimitiveID) {
+	HS_CONSTANT output;
+	output.EdgeTess[0] = 8;
+	output.EdgeTess[1] = 8;
+	output.EdgeTess[2] = 8;
+	output.EdgeTess[3] = 8;
+	output.InsideTess[0] = 8;
+	output.InsideTess[1] = 8;
+	return output;
 }
+
+[domain("quad")]
+[partitioning("integer")]
+[outputtopology("triangle_cw")]
+[outputcontrolpoints(NUM_CONTROL_POINTS)]
+[patchconstantfunc("hs_constant")]
+DS hs(InputPatch<HS, NUM_CONTROL_POINTS> input,
+	uint i : SV_OutputControlPointID,
+	uint patchid : SV_PrimitiveID) {
+
+	return input[i];
+}
+
+[domain("quad")]
+PS ds(HS_CONSTANT constant,
+	float2 domain : SV_DomainLocation,
+	const OutputPatch<DS, NUM_CONTROL_POINTS> input) {
+	//位置
+	float2 p1 = lerp(input[0].m_pos0, input[1].m_pos0, domain.x);
+	float2 p2 = lerp(input[2].m_pos0, input[3].m_pos0, domain.x);
+	float2 p = lerp(p1, p2, domain.y);
+	//方向
+	float2 d1 = lerp(input[0].m_direction, input[1].m_direction, domain.x);
+	float2 d2 = lerp(input[2].m_direction, input[3].m_direction, domain.x);
+	float2 d = lerp(d1, d2, domain.y);
+	//颜色
+	float4 c1 = lerp(input[0].m_color, input[1].m_color, domain.x);
+	float4 c2 = lerp(input[2].m_color, input[3].m_color, domain.x);
+	float4 c = lerp(c1, c2, domain.y);
+	//返回
+	PS output;
+	output.m_pos = float4(transform(p), 0, 1);
+	output.m_color = c;
+	output.m_pos0 = p;
+	output.m_direction = -d;
+	return output;
+}
+
 float2 vector2_rotation(float2 p, float r) {	//S向量2::f旋转r
 	float s = sin(r);
 	float c = cos(r);
