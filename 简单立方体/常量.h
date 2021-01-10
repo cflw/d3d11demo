@@ -5,5 +5,5 @@ constexpr int c窗口高度 = 960;
 constexpr int c基础宽度 = 640;
 constexpr int c基础高度 = 480;
 constexpr float c缩放 = (float)c窗口高度 / (float)c基础高度;
-constexpr int c基础范围x = c基础宽度 * 0.5f;
-constexpr int c基础范围y = c基础高度 * 0.5f;
+constexpr float c基础范围x = c基础宽度 * 0.5f;
+constexpr float c基础范围y = c基础高度 * 0.5f;
