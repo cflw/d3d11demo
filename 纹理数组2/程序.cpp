@@ -1,40 +1,17 @@
 ﻿#include <Windows.h>
 #include <cflw时间.h>
-#include <cflw输入_win.h>
-#include <cflw视窗.h>
 #include "图形.h"
 #include "常量.h"
 namespace 时间 = cflw::时间;
-namespace 视窗 = cflw::视窗;
-namespace 输入 = cflw::输入::win;
-constexpr std::pair<int, int> ca分辨率[] = {
-	{800, 600},
-	{1024, 768},
-	{1200, 900},
-	{1280, 720},
-	{1920, 1080},
-	{1920, 1200},
-};
-constexpr int c分辨率数 = std::distance(std::begin(ca分辨率), std::end(ca分辨率));
 class C程序 {
 public:
 	C图形 m图形;
 	时间::C计时器 m计时器;
-	输入::C输入 m输入;
-	输入::tp键盘 m键盘;
-	int m分辨率索引 = 0;
-	bool m全屏 = false;
-	C程序() {
-		g这 = this;
-	}
 	void f初始化(HINSTANCE hInst, HINSTANCE = nullptr, LPSTR = nullptr, int = 0) {
 		m实例 = hInst;
 		f创建窗口();
 		//图形
 		m图形.f初始化(m窗口);
-		//输入
-		m输入.f初始化(m窗口);
-		m键盘 = m输入.f创建键盘();
 		//计时器
 		m计时器.f重置(c帧秒);
 	}
@@ -45,26 +22,6 @@ public:
 		m图形.f销毁();
 	}
 	void f计算() {
-		m输入.f更新();
-		int v分辨率索引 = m分辨率索引;
-		if (m键盘->fg按键((int)输入::E键盘按键::e左).fi刚按下()) {
-			--v分辨率索引;
-		} else if (m键盘->fg按键((int)输入::E键盘按键::e右).fi刚按下()) {
-			++v分辨率索引;
-		} else if (m键盘->fg按键((int)输入::E键盘按键::e回车).fi刚按下() && m键盘->fg按键((int)输入::E键盘按键::e交替).fi按下()) {
-			m全屏 = !m全屏;
-			m图形.fs全屏(m全屏);
-		}
-		if (v分辨率索引 != m分辨率索引) {
-			m分辨率索引 = 数学::f求余(v分辨率索引, c分辨率数);
-			const auto &[v宽, v高] = ca分辨率[m分辨率索引];
-			m图形.fs窗口大小(v宽, v高);
-			m图形.f重置();
-			//改标题
-			std::wstringstream v窗口标题;
-			v窗口标题 << v宽 << L"*" << v高 << L",全屏" << m图形.m三维.fi全屏();
-			视窗::fs窗口标题(m窗口, v窗口标题.str().c_str());
-		}
 		m图形.f计算();
 	}
 	void f更新() {
@@ -75,7 +32,6 @@ public:
 	}
 	//消息过程
 	static LRESULT WINAPI f窗口过程(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
-		g这->m输入.f窗口消息(msg, wParam, lParam);
 		switch (msg) {
 		case WM_DESTROY:
 			PostQuitMessage(0);
@@ -103,17 +59,15 @@ public:
 		RegisterClassEx(&wc);
 		//计算窗口大小
 		RECT v窗口矩形 = {0, 0, c窗口宽度, c窗口高度};
-		const DWORD	c窗口样式 = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX;
-		const DWORD	c窗口样式ex = WS_EX_APPWINDOW | WS_EX_WINDOWEDGE;
-		AdjustWindowRectEx(&v窗口矩形, c窗口样式, FALSE, c窗口样式ex);
+		const DWORD	c窗口风格 = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX;
+		const DWORD	c窗口风格ex = WS_EX_APPWINDOW | WS_EX_WINDOWEDGE;
+		AdjustWindowRectEx(&v窗口矩形, c窗口风格, FALSE, c窗口风格ex);
 		m窗口大小[0] = v窗口矩形.right - v窗口矩形.left;
 		m窗口大小[1] = v窗口矩形.bottom - v窗口矩形.top;
 		//创建窗口
-		m窗口 = CreateWindowExW(
-			c窗口样式ex,
-			L"窗口类",	//窗口类名
+		m窗口 = CreateWindowW(L"窗口类",	//窗口类名
 			L"窗口标题",					//窗口标题
-			c窗口样式,			//窗口样式
+			c窗口风格,			//窗口风格
 			CW_USEDEFAULT, CW_USEDEFAULT,	//坐标
 			m窗口大小[0], m窗口大小[1],		//窗口尺寸
 			GetDesktopWindow(),				//窗口句柄参数
